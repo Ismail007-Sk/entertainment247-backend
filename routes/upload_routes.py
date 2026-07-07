@@ -1,28 +1,28 @@
-from fastapi import APIRouter,File,UploadFile
-import shutil
+from fastapi import APIRouter, File, UploadFile
+import cloudinary
+import cloudinary.uploader
 import os
+from dotenv import load_dotenv
 
+load_dotenv()
+
+cloudinary.config(
+    cloud_name=os.getenv("CLOUDINARY_CLOUD_NAME"),
+    api_key=os.getenv("CLOUDINARY_API_KEY"),
+    api_secret=os.getenv("CLOUDINARY_API_SECRET"),
+)
 
 router = APIRouter()
 
 
-UPLOAD_DIR = "uploads"
-os.makedirs(UPLOAD_DIR,exist_ok=True)
-
-
-# Upload File
 @router.post("/upload_file")
-                # variable name -> file ,should be used as key 
-def upload_file(file:UploadFile=File(...)):
-    file_path = os.path.join(UPLOAD_DIR,file.filename)
+def upload_file(file: UploadFile = File(...)):
 
-    with open(file_path,"wb") as output_file:
-        # file.file-> orginal uploaded file
-        # output_file-> copy of original file which is actually stored in server.
-        shutil.copyfileobj(file.file,output_file)
+    result = cloudinary.uploader.upload(file.file)
 
-    return{
-        "meesage":"File Uploaded Successfully",
-        "filename":file.filename,
-        "path":file_path
+    return {
+        "message": "File Uploaded Successfully",
+        "filename": file.filename,
+        "image_url": result["secure_url"],
+        "public_id": result["public_id"]
     }
