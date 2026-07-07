@@ -43,7 +43,7 @@ def login_user(data:UserLogin,response:Response):
             key="access_token",  # We will use this name inside cookies.get() ,while fecthing this from request 
             value=access_token,
             httponly=True,       # Makes the cookie hidden so malicious js code cant access.
-            secure=False,        # usecase: True = live website & False = localhost
+            secure=True,        # usecase: True = live website & False = localhost
             samesite="lax",      # A gateman that says the browser dont accept request from anonymous website
             max_age= 15 * 60      # 15 minutes
         )
@@ -53,7 +53,7 @@ def login_user(data:UserLogin,response:Response):
             key="refresh_token",
             value=refresh_token,
             httponly=True,
-            secure=False,      # True in Production (HTTPS)
+            secure=True,      # True in Production (HTTPS)
             samesite="lax",
             max_age= 7 * 24 * 60 * 60    # 7 days
         )
