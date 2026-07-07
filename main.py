@@ -12,18 +12,21 @@ from routes.password_routes import router as password_router
 from routes.upload_routes import router as upload_router
 from routes.message_routes import router as messsage_router
 from fastapi.middleware.cors import CORSMiddleware
+import os
 
 # metadata keeps all data and create_all run it
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
 
+FRONTEND_URL = os.getenv("FRONTEND_URL")
+
 
 # when they are on different origins.(Not Tighly couple website, API -> concept used !)
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
-        "http://localhost:3000",
+        FRONTEND_URL,
     ],
 # The backend gives the green light back to the browser saying,
 #  "Yes, I accept these cookies, and it's safe to let the frontend read my response."
