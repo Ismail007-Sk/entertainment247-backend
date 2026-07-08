@@ -44,7 +44,7 @@ def login_user(data:UserLogin,response:Response):
             value=access_token,
             httponly=True,       # Makes the cookie hidden so malicious js code cant access.
             secure=True,        # usecase: True = live website & False = localhost
-            samesite="lax",      # A gateman that says the browser dont accept request from anonymous website
+            samesite="none",      # A gateman that says the browser dont accept request from anonymous website
             max_age= 15 * 60      # 15 minutes
         )
 
@@ -54,7 +54,7 @@ def login_user(data:UserLogin,response:Response):
             value=refresh_token,
             httponly=True,
             secure=True,      # True in Production (HTTPS)
-            samesite="lax",
+            samesite="none",
             max_age= 7 * 24 * 60 * 60    # 7 days
         )
 
