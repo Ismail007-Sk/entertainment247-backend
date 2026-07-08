@@ -25,7 +25,7 @@ We received a request to reset the password for your Entertainment 24/7 account.
 
 **Your One-Time Password (OTP) is:**
 
-**{otp}**
+{otp}
 
 This OTP is valid for **5 minutes**. For your security, please do not share this code with anyone.
 
@@ -41,7 +41,7 @@ Best regards,
 
 """ )
     
-    with smtplib.SMTP_SSL("smtp.gmail.com",465) as smtp:
+    with smtplib.SMTP_SSL("smtp.gmail.com",587) as smtp:
         smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(message)
 
@@ -115,7 +115,7 @@ The Entertainment 24/7 Team
 
 """)
     
-    with smtplib.SMTP_SSL("smtp.gmail.com",465) as smtp:
+    with smtplib.SMTP_SSL("smtp.gmail.com",587) as smtp:
         smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(letter)
 
@@ -153,7 +153,7 @@ Entertainment 24/7 Team
 
 """ )
     
-    with smtplib.SMTP_SSL("smtp.gmail.com",465) as smtp:
+    with smtplib.SMTP_SSL("smtp.gmail.com",587) as smtp:
         smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(message)
         
