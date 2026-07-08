@@ -41,7 +41,8 @@ Best regards,
 
 """ )
     
-    with smtplib.SMTP("smtp.gmail.com",587) as smtp:
+    with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+        smtp.starttls()
         smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(message)
 
@@ -115,7 +116,8 @@ The Entertainment 24/7 Team
 
 """)
     
-    with smtplib.SMTP("smtp.gmail.com",587) as smtp:
+    with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+        smtp.starttls()
         smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(letter)
 
@@ -153,7 +155,8 @@ Entertainment 24/7 Team
 
 """ )
     
-    with smtplib.SMTP("smtp.gmail.com",587) as smtp:
+    with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
+        smtp.starttls()
         smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(message)
         
