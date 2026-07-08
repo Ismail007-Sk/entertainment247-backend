@@ -27,7 +27,7 @@ def forgot_password(data:ForgotPasswordRequest):
     otp_service.save_otp(db,data.email,generated_otp)
 
     # Sending OTP Email
-    email_service.sent_otp_email(data.email,generated_otp) 
+    # email_service.sent_otp_email(data.email,generated_otp) 
 
     
     return {

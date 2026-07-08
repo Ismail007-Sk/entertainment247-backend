@@ -42,16 +42,9 @@ Best regards,
 """ )
     
     with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
-        smtp.ehlo()
         smtp.starttls()
-        smtp.ehlo()
-        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(message)
-    
-    # with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
-    #     smtp.starttls()
-    #     smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-    #     smtp.send_message(message)
         
 
 
@@ -124,17 +117,11 @@ The Entertainment 24/7 Team
 
 """)
     
+
     with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
-        smtp.ehlo()
         smtp.starttls()
-        smtp.ehlo()
-        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(letter)
-    
-    # with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
-    #     smtp.starttls()
-    #     smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-    #     smtp.send_message(message)
         
 
 
@@ -172,16 +159,9 @@ Entertainment 24/7 Team
 """ )
     
     with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
-        smtp.ehlo()
         smtp.starttls()
-        smtp.ehlo()
-        smtp.login(EMAIL_ADDRESS, EMAIL_PASSWORD)
+        smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
         smtp.send_message(message)
-    
-    # with smtplib.SMTP("smtp.gmail.com", 587) as smtp:
-    #     smtp.starttls()
-    #     smtp.login(EMAIL_ADDRESS,EMAIL_PASSWORD)
-    #     smtp.send_message(message)
         
 
     

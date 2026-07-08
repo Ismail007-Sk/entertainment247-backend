@@ -35,7 +35,7 @@ def reset_password(data:ResetPasswordRequest):
 
     # Hash new password
     user_exists.password = hashing_password(data.new_password)
-    sent_password_change_email(user_exists.email)
+    # sent_password_change_email(user_exists.email)
     
     # Updating database
     db.add(user_exists)

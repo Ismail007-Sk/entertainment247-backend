@@ -11,7 +11,7 @@ router = APIRouter()
 def register_user(data:RegisterUser):
     db = SessionLocal()
     user_registration_service.register_user(db,data)
-    welcome_email(data.name , data.email ,"user")
+    # welcome_email(data.name , data.email ,"user")
 
     return {"message":"new user registered successfully"}
 

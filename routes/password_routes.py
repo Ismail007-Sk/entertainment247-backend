@@ -48,7 +48,7 @@ def resetVerifiedPassword(id:int , data:PasswordVerify):
     db.add(user_existed)
     db.commit()
     
-    sent_password_change_email(user_existed.email)
+    # sent_password_change_email(user_existed.email)
 
     db.close()
     return{
