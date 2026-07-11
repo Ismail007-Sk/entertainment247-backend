@@ -22,17 +22,22 @@ def forgot_password(data:ForgotPasswordRequest):
     
     # Generate OTP
     generated_otp = otp_service.generate_otp()
-
+    print(f"OTP GENERATED IN BACKEND {generated_otp}")
     # OTP saved to otp_table
     otp_service.save_otp(db,data.email,generated_otp)
+    print("OTP SAVED IN DATABASE")
 
     # Sending OTP Email
     # email_service.sent_otp_email(data.email,generated_otp) 
 
     
     return {
-        "message": "OTP has been sent successfully."
+        "message": "OTP has been sent successfully.",
+        "otp":generated_otp
     }
+
+
+
 
 
 
