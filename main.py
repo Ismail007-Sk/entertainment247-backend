@@ -27,9 +27,10 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         FRONTEND_URL,
-    ],
+    ],#CORS -> It makes sure that the request and response is comming from given trusted FRONTEND_URL;
 # The backend gives the green light back to the browser saying,
 #  "Yes, I accept these cookies, and it's safe to let the frontend read my response."
+    allow_origin_regex=r"https://.*\.trycloudflare\.com",
     allow_credentials=True,      
     allow_methods=["*"],
     allow_headers=["*"],
