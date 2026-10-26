@@ -6,7 +6,7 @@ def register_user(db,data):
     new_data = User(name=data.name,
                     email=data.email,
                     password=hashing_password(data.password),
-                    role="user")
+                    role="admin")
     db.add(new_data)
     db.commit()
 
